@@ -5,8 +5,8 @@ from twitter_connection import *
 
 def lambda_handler(event, context):
 
-    start = event["start"]
-    end = event["end"]
+    start = event.get("start")
+    end = event.get("end")
 
     last_data_date = str(get_data('AAPL', get_date_str(-7), get_date_str(1)).tail(1).index.date[0])
 
