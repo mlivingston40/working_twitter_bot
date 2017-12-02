@@ -5,6 +5,9 @@ from twitter_connection import *
 
 def lambda_handler(event, context):
 
+    start = event["start"]
+    end = event["end"]
+
     last_data_date = str(get_data('AAPL', get_date_str(-7), get_date_str(1)).tail(1).index.date[0])
 
     buy_stocks = []
@@ -21,7 +24,7 @@ def lambda_handler(event, context):
         for i in lists:
             for x in i:
                 tickers.append(x)
-        for i in tickers:
+        for i in tickers[start:end]:
             sleep(.2)
             data = get_data(i, get_date_str(-126), get_date_str(1))
             sma = moving_average_df(20, data=data)
