@@ -7,6 +7,7 @@ def lambda_handler(event, context):
 
     start = event.get("start")
     end = event.get("end")
+    group = event.get("group")
 
     last_data_date = str(get_data('AAPL', get_date_str(-7), get_date_str(1)).tail(1).index.date[0])
 
@@ -55,8 +56,8 @@ def lambda_handler(event, context):
     if len(buy_stocks) == 0:
         pass
     else:
-        tweet("Hello! Based on Yesterday's Stock Market Close - {}, above"
-              " are stocks that have buy signals based on a Mean Reversion Strategy:".format(yesterday))
+        tweet("Hello! Based on Yesterday's Stock Market Close - {}, these"
+              " stocks have buy signals based on a Mean Reversion Strategy ({}/6):".format(yesterday, group))
         for i in buy_stocks:
             tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/2019-03-09/20/80".format(i, i, i))
 
@@ -65,8 +66,8 @@ def lambda_handler(event, context):
     if len(sell_stocks) == 0:
         pass
     else:
-        tweet("Hello! Based on Yesterday's Stock Market Close - {}, above"
-              " are stocks that have sell signals based on a Mean Reversion Strategy:".format(yesterday))
+        tweet("Hello! Based on Yesterday's Stock Market Close - {}, these"
+              " stocks have sell signals based on a Mean Reversion Strategy ({}/6):".format(yesterday, group))
         for i in sell_stocks:
             tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/2019-03-09/20/80".format(i, i, i))
 
