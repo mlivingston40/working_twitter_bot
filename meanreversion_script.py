@@ -59,7 +59,7 @@ def lambda_handler(event, context):
         tweet("Hello! Based on Yesterday's Stock Market Close - {}, these"
               " stocks have buy signals based on a Mean Reversion Strategy ({}/6):".format(yesterday, group))
         for i in buy_stocks:
-            tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/2019-03-09/20/80".format(i, i, i))
+            tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/{}/20/80".format(i, i, i, yesterday))
 
     #### tweet out list of sell stocks ###
 
@@ -69,7 +69,4 @@ def lambda_handler(event, context):
         tweet("Hello! Based on Yesterday's Stock Market Close - {}, these"
               " stocks have sell signals based on a Mean Reversion Strategy ({}/6):".format(yesterday, group))
         for i in sell_stocks:
-            tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/2019-03-09/20/80".format(i, i, i))
-
-
-
+            tweet("${} #{} https://www.stockbacktest.io/meanreversion/result/{}/2017-01-01/{}/20/80".format(i, i, i, yesterday))
