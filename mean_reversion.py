@@ -8,7 +8,7 @@ import requests
 import json
 
 #quandl key#
-quandl.ApiConfig.api_key = 'LUc6i68JzC1xFUsauSDm'
+quandl.ApiConfig.api_key = 'Key'
 
 
 def get_date_str(N):
