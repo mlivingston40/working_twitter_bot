@@ -8,10 +8,10 @@ def get_api(cfg):
 def tweet(tweet):
   # Fill in the values noted in previous step here
   cfg = {
-    "consumer_key"        : "oyA4zCfF5gib2gpbeFI2fRkck",
-    "consumer_secret"     : "0eLW5cXg4AUocbYHyKr6K2DTwHcWIahKzqIfIiaKmbCC7hFx3A",
-    "access_token"        : "912818063543869441-v2E1YzoYCSm7xTZHPbtQkJr92TNevAf",
-    "access_token_secret" : "eI3HtXu7HRHsjOWiGAzPqLmvKMrajQnjhMVDoBFxjNbMT"
+    "consumer_key"        : "someKey",
+    "consumer_secret"     : "someSecret",
+    "access_token"        : "someToken",
+    "access_token_secret" : "someAccessToken"
     }
 
   api = get_api(cfg)
